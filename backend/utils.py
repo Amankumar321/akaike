@@ -126,6 +126,6 @@ async def generate_hindi_tts(text, filename="output.mp3"):
     translated_text = text_to_translate.text
 
     tts = gTTS(text=translated_text, lang='hi')
-    path = "static/" + filename
+    path = "/static/" + filename
     tts.save(path)
     return path
