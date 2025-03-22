@@ -5,8 +5,12 @@ from get_news import get_google_news
 from utils import extract_topics_and_summary, analyze_sentiment, comparative_analysis, final_analysis, generate_hindi_tts
 import asyncio
 import json
+import os
 
 app = FastAPI()
+
+if not os.path.exists("static"):
+    os.makedirs("static")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 async def process_article(article):
