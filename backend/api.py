@@ -57,3 +57,7 @@ async def stream_news_analysis(company: str):
 @app.get("/analyze-company-news", response_class=StreamingResponse)
 async def analyze_company_news(company: str):
     return StreamingResponse(stream_news_analysis(company), media_type="application/json")
+
+@app.get("/ping")
+async def ping():
+    return {"message": "pong"}
